@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mis recursos — Conexión</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+
+<div class="topbar-movil">
+  <div class="marca"><div class="logo-icono">C</div><strong>Conexión</strong></div>
+  <button aria-label="Abrir menú">☰</button>
+</div>
+
+<div class="app-cuidador">
+  <aside class="sidebar">
+    <a href="../index.html" class="marca">
+      <div class="logo-icono">C</div>
+      <div class="marca-texto"><strong>Conexión</strong><span>CENTRO INTEGRAL PSICOLÓGICO</span></div>
+    </a>
+    <nav>
+      <a href="inicio.html">🏠 Mi inicio</a>
+      <a href="progreso.html">📈 Mi progreso</a>
+      <a href="bitacora.html">📓 Mi bitácora</a>
+      <a href="recursos.html" class="activo">🎬 Mis recursos</a>
+      <a href="citas.html">📅 Mis citas</a>
+      <a href="recompensa.html">🌿 Mi recompensa</a>
+    </nav>
+    <div class="salir"><a href="../index.html" data-cerrar-sesion>↩ Cerrar sesión</a></div>
+  </aside>
+
+  <main class="contenido-cuidador">
+    <h1>Mis recursos</h1>
+    <p class="subtitulo" style="margin-left:0;">Materiales y recomendaciones para acompañar a tu familia.</p>
+
+    <div class="grid-4" id="categorias-recursos" style="margin-bottom:34px;"></div>
+
+    <div class="grid-2" id="lista-recursos"></div>
+  </main>
+</div>
+
+<script src="../assets/js/estado.js"></script>
+<script src="../assets/js/ui.js"></script>
+<script>
+  const categorias = ['Recomendados para mí', 'Videos de apoyo', 'Material visual', 'Bienestar del cuidador'];
+  document.getElementById('categorias-recursos').innerHTML = categorias.map(c => `
+    <div class="tarjeta texto-centro"><h3 style="margin:0; font-size:1rem;">${c}</h3></div>
+  `).join('');
+
+  const recursos = [
+    {
+      titulo: 'Pictogramas para pedir una pausa',
+      categoria: 'Recomendados para mí',
+      descripcion: 'Material visual para practicar en casa lo trabajado en la sesión 06.',
+      sesion: 6
+    },
+    {
+      titulo: 'Video: seguimiento de indicaciones simples',
+      categoria: 'Videos de apoyo',
+      descripcion: 'Un video breve con ejemplos de cómo acompañar esta actividad en casa.',
+      sesion: 6
+    },
+    {
+      titulo: 'Tarjetas de emociones',
+      categoria: 'Material visual',
+      descripcion: 'Tarjetas para reconocer y nombrar emociones junto a tu niño o niña.'
+    },
+    {
+      titulo: 'Respiración consciente para el cuidador',
+      categoria: 'Bienestar del cuidador',
+      descripcion: 'Un ejercicio breve de respiración para esos momentos que requieren calma.'
+    },
+    {
+      titulo: 'Juegos de coordinación con masa moldeable',
+      categoria: 'Recomendados para mí',
+      descripcion: 'Ideas de juego relacionadas con tu sesión de terapia ocupacional.',
+      sesion: 5
+    },
+    {
+      titulo: 'Espacio de pausa para ti',
+      categoria: 'Bienestar del cuidador',
+      descripcion: 'Una breve guía para tomarte unos minutos de descanso durante el día.'
+    }
+  ];
+
+  document.getElementById('lista-recursos').innerHTML = recursos.map(r => `
+    <div class="tarjeta">
+      <h3>${r.titulo}</h3>
+      <p style="font-size:.85rem; color:var(--texto-suave); margin-bottom:6px;">${r.categoria}${r.sesion ? ' · Sesión relacionada: 0'+r.sesion : ''}</p>
+      <p>${r.descripcion}</p>
+      <button class="btn btn-secundario btn-pequeno" data-abrir-modal="m-recurso">Ver recurso</button>
+    </div>
+  `).join('');
+</script>
+
+<div class="modal-fondo" id="m-recurso">
+  <div class="modal">
+    <button class="modal-cerrar" data-cerrar-modal>✕</button>
+    <h3>Material de apoyo</h3>
+    <div class="marcador-video">▶ Contenido del recurso</div>
+    <p style="margin-top:14px;">Este espacio muestra el material de apoyo correspondiente al recurso seleccionado.</p>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mi progreso — Conexión</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+
+<div class="topbar-movil">
+  <div class="marca"><div class="logo-icono">C</div><strong>Conexión</strong></div>
+  <button aria-label="Abrir menú">☰</button>
+</div>
+
+<div class="app-cuidador">
+  <aside class="sidebar">
+    <a href="../index.html" class="marca">
+      <div class="logo-icono">C</div>
+      <div class="marca-texto"><strong>Conexión</strong><span>CENTRO INTEGRAL PSICOLÓGICO</span></div>
+    </a>
+    <nav>
+      <a href="inicio.html">🏠 Mi inicio</a>
+      <a href="progreso.html" class="activo">📈 Mi progreso</a>
+      <a href="bitacora.html">📓 Mi bitácora</a>
+      <a href="recursos.html">🎬 Mis recursos</a>
+      <a href="citas.html">📅 Mis citas</a>
+      <a href="recompensa.html">🌿 Mi recompensa</a>
+    </nav>
+    <div class="salir"><a href="../index.html" data-cerrar-sesion>↩ Cerrar sesión</a></div>
+  </aside>
+
+  <main class="contenido-cuidador">
+    <h1>Mi progreso</h1>
+    <p class="subtitulo" style="margin-left:0;">Un recorrido por etapas que acompaña el proceso de tu niño o niña y el tuyo.</p>
+
+    <div class="tarjeta" id="tarjeta-actividad-semana" style="margin-bottom:26px;"></div>
+
+    <div class="etapas" id="lista-etapas"></div>
+
+    <div class="modal-nota" style="margin-top:24px; max-width:700px;">
+      El progreso representa la participación del cuidador en las actividades de la
+      plataforma. No constituye una evaluación clínica ni mide automáticamente el
+      desarrollo del niño.
+    </div>
+  </main>
+</div>
+
+<script src="../assets/js/estado.js"></script>
+<script src="../assets/js/ui.js"></script>
+<script>
+  function etiquetaEstado(e){
+    return { 'completada':'Completada', 'en-progreso':'En progreso', 'pendiente':'Pendiente' }[e];
+  }
+
+  function pintarActividadSemana(){
+    const estado = obtenerEstado();
+    const act = estado.actividadSemana;
+    const resp = act.respuesta;
+    const cont = document.getElementById('tarjeta-actividad-semana');
+    cont.innerHTML = `
+      <h3>Actividad de la semana</h3>
+      <p>${act.titulo}</p>
+      <div class="opciones-respuesta">
+        <button class="opcion-respuesta ${resp==='realizada'?'seleccionada':''}" data-resp="realizada">La realizamos ✓</button>
+        <button class="opcion-respuesta ${resp==='con-apoyo'?'seleccionada':''}" data-resp="con-apoyo">La intentamos</button>
+        <button class="opcion-respuesta ${resp==='duda'?'seleccionada':''}" data-resp="duda">Tenemos una duda</button>
+      </div>
+      <p style="margin-top:10px; font-size:.85rem; color:var(--texto-suave);">Puedes registrar el detalle completo de esta actividad en tu bitácora, sesión 06.</p>
+    `;
+    cont.querySelectorAll('[data-resp]').forEach(boton => {
+      boton.addEventListener('click', () => {
+        registrarRespuestaSesion(6, boton.getAttribute('data-resp'), estado.bitacora.sesiones.find(s => s.numero === 6).observacion);
+        pintarActividadSemana();
+        pintarEtapas();
+      });
+    });
+  }
+
+  function pintarEtapas(){
+    const estado = obtenerEstado();
+    const cont = document.getElementById('lista-etapas');
+    cont.innerHTML = estado.etapas.map(etapa => `
+      <div class="etapa" data-estado="${etapa.estado}">
+        <div class="etapa-num">${etapa.id}</div>
+        <div style="flex:1;">
+          <div style="display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; align-items:center;">
+            <h3 style="margin:0;">${etapa.nombre}</h3>
+            <span class="etiqueta-estado ${etapa.estado}">${etiquetaEstado(etapa.estado)}</span>
+          </div>
+          <p style="margin:8px 0 10px;">${etapa.descripcion}</p>
+          <div class="barra-progreso"><div class="barra-progreso-interna" style="width:${etapa.avance}%;"></div></div>
+          <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
+            ${etapa.estado === 'pendiente' ? `<button class="btn btn-secundario btn-pequeno" data-accion="en-progreso" data-id="${etapa.id}">Comenzar etapa</button>` : ''}
+            ${etapa.estado !== 'completada' ? `<button class="btn btn-primario btn-pequeno" data-accion="completada" data-id="${etapa.id}">Marcar como completada</button>` : ''}
+          </div>
+        </div>
+      </div>
+    `).join('');
+
+    cont.querySelectorAll('[data-accion]').forEach(boton => {
+      boton.addEventListener('click', () => {
+        actualizarEstadoEtapa(Number(boton.getAttribute('data-id')), boton.getAttribute('data-accion'));
+        pintarEtapas();
+      });
+    });
+  }
+
+  pintarActividadSemana();
+  pintarEtapas();
+</script>
+</body>
+</html>

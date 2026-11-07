@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mi bitácora — Conexión</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+
+<div class="topbar-movil">
+  <div class="marca"><div class="logo-icono">C</div><strong>Conexión</strong></div>
+  <button aria-label="Abrir menú">☰</button>
+</div>
+
+<div class="app-cuidador">
+  <aside class="sidebar">
+    <a href="../index.html" class="marca">
+      <div class="logo-icono">C</div>
+      <div class="marca-texto"><strong>Conexión</strong><span>CENTRO INTEGRAL PSICOLÓGICO</span></div>
+    </a>
+    <nav>
+      <a href="inicio.html">🏠 Mi inicio</a>
+      <a href="progreso.html">📈 Mi progreso</a>
+      <a href="bitacora.html" class="activo">📓 Mi bitácora</a>
+      <a href="recursos.html">🎬 Mis recursos</a>
+      <a href="citas.html">📅 Mis citas</a>
+      <a href="recompensa.html">🌿 Mi recompensa</a>
+    </nav>
+    <div class="salir"><a href="../index.html" data-cerrar-sesion>↩ Cerrar sesión</a></div>
+  </aside>
+
+  <main class="contenido-cuidador">
+
+    <div id="vista-lista">
+      <h1>Mi bitácora</h1>
+      <p class="subtitulo" style="margin-left:0;">El registro de cada sesión, explicado de forma sencilla y visual.</p>
+      <div id="lista-sesiones"></div>
+    </div>
+
+    <div id="vista-detalle" style="display:none;">
+      <button class="btn btn-secundario btn-pequeno" id="btn-volver-lista" style="margin-bottom:20px;">← Volver a mi bitácora</button>
+      <div id="detalle-sesion"></div>
+    </div>
+
+  </main>
+</div>
+
+<script src="../assets/js/estado.js"></script>
+<script src="../assets/js/ui.js"></script>
+<script>
+  const etiquetasRespuesta = {
+    'realizada': 'La realizamos y nos resultó cómoda',
+    'con-apoyo': 'La intentamos con apoyo',
+    'duda': 'Tenemos una duda',
+    'pendiente': 'Aún no la hemos realizado'
+  };
+
+  function pintarLista(){
+    const estado = obtenerEstado();
+    const cont = document.getElementById('lista-sesiones');
+    cont.innerHTML = estado.bitacora.sesiones.map(s => `
+      <div class="sesion-tarjeta">
+        <div>
+          <h3 style="margin-bottom:4px;">Sesión ${String(s.numero).padStart(2,'0')}</h3>
+          <div class="sesion-meta">
+            <span>📅 ${s.fecha}</span>
+            <span>🧩 ${s.area}</span>
+            <span class="badge-rol">${s.profesional}</span>
+          </div>
+          <p style="margin:10px 0 0; max-width:520px;">${s.resumen}</p>
+        </div>
+        <button class="btn btn-primario btn-pequeno" data-ver="${s.numero}">Ver mi sesión</button>
+      </div>
+    `).join('');
+
+    cont.querySelectorAll('[data-ver]').forEach(boton => {
+      boton.addEventListener('click', () => mostrarDetalle(Number(boton.getAttribute('data-ver'))));
+    });
+  }
+
+  function mostrarDetalle(numero){
+    const estado = obtenerEstado();
+    const s = estado.bitacora.sesiones.find(x => x.numero === numero);
+    if(!s) return;
+
+    document.getElementById('vista-lista').style.display = 'none';
+    document.getElementById('vista-detalle').style.display = 'block';
+
+    document.getElementById('detalle-sesion').innerHTML = `
+      <div class="bloque-pregunta">
+        <h3>Sesión ${String(s.numero).padStart(2,'0')}</h3>
+        <div class="sesion-meta">
+          <span>📅 ${s.fecha}</span>
+          <span>🧩 ${s.area}</span>
+          <span class="badge-rol">${s.profesional}</span>
+        </div>
+      </div>
+
+      <div class="bloque-pregunta">
+        <h3>🧩 ¿Qué trabajamos hoy?</h3>
+        <div>${s.actividades.map(a => `<span class="actividad-chip">${a}</span>`).join('')}</div>
+      </div>
+
+      <div class="bloque-pregunta">
+        <h3>🏠 ¿Qué podemos practicar en casa?</h3>
+        <ul style="margin:0; padding-left:20px;">
+          ${s.practicarCasa.map(p => `<li style="margin-bottom:6px;">${p}</li>`).join('')}
+        </ul>
+        <div class="modal-nota">Las indicaciones específicas serán compartidas por el profesional a cargo.</div>
+      </div>
+
+      <div class="bloque-pregunta">
+        <h3>🎬 Material de apoyo</h3>
+        <div class="marcador-video">▶ Pictograma / video de la sesión</div>
+      </div>
+
+      <div class="bloque-pregunta">
+        <h3>💬 ¿Cómo nos fue?</h3>
+        <div class="opciones-respuesta" id="opciones-respuesta-detalle">
+          ${['realizada','con-apoyo','duda','pendiente'].map(r => `
+            <button class="opcion-respuesta ${s.respuesta===r?'seleccionada':''}" data-resp="${r}">${etiquetasRespuesta[r]}</button>
+          `).join('')}
+        </div>
+        <div class="form-grupo" style="margin-top:16px;">
+          <label for="observacion-sesion">¿Quieres registrar alguna observación? (opcional)</label>
+          <textarea id="observacion-sesion" placeholder="Escribe aquí tu observación">${s.observacion || ''}</textarea>
+        </div>
+        <button class="btn btn-primario" id="btn-guardar-registro">Guardar registro</button>
+        <div class="mensaje-confirmacion" id="conf-bitacora">✅ Tu registro ha sido guardado.</div>
+      </div>
+    `;
+
+    let respuestaSeleccionada = s.respuesta;
+    document.querySelectorAll('#opciones-respuesta-detalle [data-resp]').forEach(boton => {
+      boton.addEventListener('click', () => {
+        respuestaSeleccionada = boton.getAttribute('data-resp');
+        document.querySelectorAll('#opciones-respuesta-detalle [data-resp]').forEach(b => b.classList.remove('seleccionada'));
+        boton.classList.add('seleccionada');
+      });
+    });
+
+    document.getElementById('btn-guardar-registro').addEventListener('click', () => {
+      const observacion = document.getElementById('observacion-sesion').value;
+      registrarRespuestaSesion(numero, respuestaSeleccionada, observacion);
+      document.getElementById('conf-bitacora').classList.add('visible');
+    });
+  }
+
+  document.getElementById('btn-volver-lista').addEventListener('click', () => {
+    document.getElementById('vista-detalle').style.display = 'none';
+    document.getElementById('vista-lista').style.display = 'block';
+    pintarLista();
+  });
+
+  pintarLista();
+</script>
+</body>
+</html>

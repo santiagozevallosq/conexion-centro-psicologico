@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acceder — Conexión</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="assets/css/styles.css">
+<style>
+  body{ min-height:100vh; display:flex; flex-direction:column; }
+  .acceso-wrap{ flex:1; display:flex; align-items:center; justify-content:center; padding: 40px 20px; }
+  .acceso-tarjeta{
+    background:#fff; border-radius: var(--radio); box-shadow: var(--sombra-hover);
+    padding: 44px 36px; max-width: 420px; width:100%; text-align:center;
+  }
+  .acceso-tarjeta .logo-icono{ width:56px; height:56px; margin:0 auto 18px; font-size:1.4rem; border-radius:16px; }
+</style>
+</head>
+<body>
+
+<header class="encabezado">
+  <div class="container">
+    <a href="index.html" class="marca">
+      <div class="logo-icono">C</div>
+      <div class="marca-texto"><strong>Conexión</strong><span>CENTRO INTEGRAL PSICOLÓGICO</span></div>
+    </a>
+  </div>
+</header>
+
+<div class="acceso-wrap">
+  <div class="acceso-tarjeta">
+    <div class="logo-icono" style="background:linear-gradient(135deg, var(--verde-salvia), var(--azul-suave)); color:#fff; display:flex; align-items:center; justify-content:center;">C</div>
+    <h1 style="font-size:1.6rem;">Bienvenido a Conexión</h1>
+    <p class="subtitulo" style="margin-bottom:28px;">Tu espacio para acompañar y cuidarte.</p>
+    <a href="cuidador/inicio.html" class="btn btn-primario btn-bloque">Acceder a mi espacio</a>
+    <p style="margin-top:22px;"><a href="index.html">← Volver al inicio</a></p>
+  </div>
+</div>
+
+<script src="assets/js/ui.js"></script>
+</body>
+</html>

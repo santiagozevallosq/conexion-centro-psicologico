@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mi inicio — Conexión</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+
+<div class="topbar-movil">
+  <div class="marca"><div class="logo-icono">C</div><strong>Conexión</strong></div>
+  <button aria-label="Abrir menú">☰</button>
+</div>
+
+<div class="app-cuidador">
+  <aside class="sidebar">
+    <a href="../index.html" class="marca">
+      <div class="logo-icono">C</div>
+      <div class="marca-texto"><strong>Conexión</strong><span>CENTRO INTEGRAL PSICOLÓGICO</span></div>
+    </a>
+    <nav>
+      <a href="inicio.html" class="activo">🏠 Mi inicio</a>
+      <a href="progreso.html">📈 Mi progreso</a>
+      <a href="bitacora.html">📓 Mi bitácora</a>
+      <a href="recursos.html">🎬 Mis recursos</a>
+      <a href="citas.html">📅 Mis citas</a>
+      <a href="recompensa.html">🌿 Mi recompensa</a>
+    </nav>
+    <div class="salir">
+      <a href="../index.html" data-cerrar-sesion>↩ Cerrar sesión</a>
+    </div>
+  </aside>
+
+  <main class="contenido-cuidador">
+    <div class="bienvenida-panel">
+      <div>
+        <h1 style="margin-bottom:6px;">¡Hola! Bienvenido a tu espacio</h1>
+        <p style="margin:0; max-width:520px;">Aquí puedes revisar tus sesiones, encontrar recursos y consultar
+          las actividades propuestas para casa.</p>
+      </div>
+      <img src="../assets/img/hero-inicio.jpg" alt="" style="width:160px; height:120px; object-fit:cover; border-radius:16px;">
+    </div>
+
+    <div class="resumen-grid" id="resumen-grid"></div>
+
+    <div class="grid-2">
+      <div class="tarjeta">
+        <h3>Video recomendado</h3>
+        <div class="marcador-video" style="margin-bottom:14px;">▶ Uso de pictogramas en casa</div>
+        <a href="recursos.html" class="btn btn-secundario btn-pequeno">Ver en mis recursos</a>
+      </div>
+      <div class="tarjeta">
+        <h3>Mi progreso</h3>
+        <p id="resumen-progreso-texto">Cargando…</p>
+        <div class="barra-progreso"><div class="barra-progreso-interna" id="barra-progreso-inicio" style="width:0%;"></div></div>
+        <a href="progreso.html" class="btn btn-secundario btn-pequeno" style="margin-top:10px;">Ver mi recorrido</a>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="../assets/js/estado.js"></script>
+<script src="../assets/js/ui.js"></script>
+<script>
+  const estado = obtenerEstado();
+  const proximaCita = estado.citas.find(c => c.estado === 'confirmada') || estado.citas[0];
+  const avance = avanceGlobal(estado);
+
+  document.getElementById('resumen-grid').innerHTML = `
+    <div class="mini-tarjeta">
+      <h4>Mi próxima cita</h4>
+      <div class="valor">${proximaCita ? proximaCita.fecha : 'Sin citas agendadas'}</div>
+      <p style="margin:4px 0 0; font-size:.85rem; color:var(--texto-suave);">${proximaCita ? proximaCita.tipo : ''}</p>
+    </div>
+    <div class="mini-tarjeta">
+      <h4>Solicitar nueva cita</h4>
+      <a href="citas.html" class="btn btn-primario btn-pequeno" style="margin-top:4px;">Solicitar</a>
+    </div>
+    <div class="mini-tarjeta">
+      <h4>Actividad de hoy</h4>
+      <div class="valor" style="font-size:1rem;">${estado.actividadSemana.titulo}</div>
+    </div>
+    <div class="mini-tarjeta">
+      <h4>Mi bitácora</h4>
+      <a href="bitacora.html" class="btn btn-secundario btn-pequeno" style="margin-top:4px;">Ver sesiones</a>
+    </div>
+  `;
+
+  document.getElementById('resumen-progreso-texto').textContent =
+    `Llevas un ${avance}% de avance en tu recorrido de acompañamiento.`;
+  document.getElementById('barra-progreso-inicio').style.width = avance + '%';
+</script>
+</body>
+</html>

@@ -1,0 +1,722 @@
+Crea el sitio web de “Conexión”, un centro integral psicológico para
+niños de 3 a 11 años con trastorno del espectro autista (TEA) y sus
+padres, madres o cuidadores.
+
+==================================================
+1. CONTEXTO Y OBJETIVO
+==================================================
+
+Conexión es un centro integral psicológico para familias de
+San Miguel, Lima, Perú.
+
+El centro brinda diferentes terapias y acompañamiento especializado
+a niños con TEA de 3 a 11 años. También considera las necesidades de
+sus cuidadores mediante orientación práctica, recursos para el hogar
+y espacios de apoyo para su bienestar emocional.
+
+El centro acompaña a la familia entre sesiones y contribuye al
+bienestar del cuidador, sin prometer resultados clínicos automáticos.
+
+El sitio web debe cumplir dos propósitos:
+
+1. Presentar el centro, sus terapias y servicios a las familias
+   interesadas.
+
+2. Ofrecer un espacio privado para los cuidadores que reciben
+   atención en el centro.
+
+El sitio debe permitir:
+
+- Conocer qué es Conexión y a quién está dirigido.
+- Revisar las evaluaciones y terapias disponibles.
+- Conocer el apoyo dirigido al cuidador.
+- Visualizar información sobre los recursos para el cuidado.
+- Acceder a mi espacio como cuidador.
+- Revisar una bitácora digital de sesiones.
+- Consultar actividades y videos de apoyo.
+- Recorrer etapas de actividades de manera visual.
+- Consultar las citas programadas.
+- Solicitar una nueva cita.
+- Solicitar la reprogramación de una cita existente.
+- Mostrar el avance hacia una sesión mensual de terapia para el
+  cuidador como recompensa.
+
+==================================================
+2. ALCANCE DEL SITIO
+==================================================
+
+- No recopiles ni envíes información personal real a través del
+  sitio: todo el contenido y los formularios funcionan de manera
+  local, en el navegador.
+- No conectes bases de datos, calendarios ni servicios externos.
+- No implementes pagos.
+- No solicites claves de servicios, configuraciones ni integraciones.
+- El acceso a la zona del cuidador se realiza con un botón directo
+  “Acceder a mi espacio”, sin pedir usuario ni contraseña.
+- Las citas, formularios, solicitudes y registros de la bitácora se
+  guardan en el navegador (por ejemplo, mediante almacenamiento
+  local), de modo que los cambios se conserven durante la sesión de
+  uso.
+- Los servicios presentados son el catálogo de referencia del centro
+  y deben ser fáciles de modificar más adelante.
+- No describas indicaciones terapéuticas específicas: indica que
+  serán proporcionadas por el profesional a cargo.
+- No inventes nombres de profesionales reales, acreditaciones,
+  cifras de experiencia, testimonios, precios ni direcciones
+  específicas. Refiérete a quienes atienden por su rol
+  (por ejemplo, “profesional a cargo”, “especialista responsable”).
+- No presentes el acceso a la zona del cuidador como un sistema de
+  autenticación con validación de credenciales, ya que no existe un
+  inicio de sesión real.
+
+==================================================
+3. DISEÑO VISUAL
+==================================================
+
+Usa las imágenes de referencia visual y crea una identidad coherente
+para Conexión.
+
+Paleta de colores:
+
+- Verde salvia.
+- Azul suave.
+- Terracota.
+- Crema o blanco cálido.
+
+Estilo:
+
+- Moderno, cercano, sereno y profesional.
+- Apropiado para padres, madres y cuidadores.
+- Evita un diseño exclusivamente infantil.
+- Tipografía redondeada, clara y fácil de leer.
+- Botones visibles y textos breves.
+- Tarjetas con bordes redondeados e íconos sencillos.
+- Buen contraste y suficiente espacio en blanco.
+- Imágenes cálidas y respetuosas de cuidadores y niños.
+- Diseño adaptable a computadoras, tabletas y celulares.
+- Todo el contenido debe estar en español.
+- No copies logotipos ni diseños de otros centros.
+
+==================================================
+4. ESTRUCTURA GENERAL
+==================================================
+
+El sitio tiene dos áreas.
+
+A. PÁGINA PÚBLICA
+
+Menú:
+
+- Inicio.
+- Nosotros.
+- Servicios.
+- Recursos para el cuidado.
+- Contacto.
+- Ingresar.
+
+No agregues una sección ni un elemento del menú llamado “Familias”.
+
+B. ZONA DEL CUIDADOR
+
+Menú:
+
+- Mi inicio.
+- Mi progreso.
+- Mi bitácora.
+- Mis recursos.
+- Mis citas.
+- Mi recompensa.
+- Cerrar sesión.
+
+==================================================
+A. PÁGINA PÚBLICA
+==================================================
+
+5. ENCABEZADO
+
+Incluye:
+
+- Nombre: “Conexión”.
+- Descriptor: “Centro Integral Psicológico”.
+- Menú: Inicio, Nosotros, Servicios, Recursos para el cuidado
+  y Contacto.
+- Botón destacado: “Ingresar”.
+
+El menú debe funcionar correctamente en computadoras y celulares.
+
+==================================================
+6. INICIO
+==================================================
+
+La pantalla inicial debe explicar claramente qué hace Conexión.
+
+Título principal:
+
+“Terapias para niños con TEA y apoyo para sus cuidadores”.
+
+Texto:
+
+“Somos un centro integral psicológico para niños de 3 a 11 años
+con trastorno del espectro autista. Combinamos terapias para el
+niño con orientación y apoyo para el bienestar de sus padres,
+madres y cuidadores”.
+
+Incluye una imagen cálida y respetuosa de un cuidador y un niño
+compartiendo una actividad.
+
+Botones:
+
+- “Conoce nuestros servicios”.
+- “Ingresar”.
+
+Debajo, muestra tres tarjetas:
+
+A. Terapias para niños
+
+“Servicios de acompañamiento orientados a las necesidades de
+desarrollo, comunicación, autonomía y aprendizaje”.
+
+B. Orientación para cuidadores
+
+“Espacios de escucha y orientación para comprender lo trabajado
+en las sesiones y acompañar las actividades en casa”.
+
+C. Bienestar emocional
+
+“Recursos y espacios de apoyo para quienes cuidan, reconociendo
+también sus propias necesidades de bienestar”.
+
+Agrega una sección titulada:
+
+“Cómo te acompañamos”.
+
+Muestra cuatro pasos visuales:
+
+1. Conocemos tus necesidades.
+2. Conversamos sobre los siguientes pasos.
+3. Acompañamos el proceso del niño.
+4. Compartimos orientación y recursos para el hogar.
+
+No inventes cifras de atención, personal o instalaciones que no se
+hayan definido.
+
+==================================================
+7. NOSOTROS
+==================================================
+
+Título:
+
+“Conoce Conexión”.
+
+Texto:
+
+“Conexión es un centro integral psicológico para niños de 3 a 11
+años con TEA. Su propósito es combinar terapias especializadas con
+orientación práctica para quienes los cuidan, reconociendo que el
+bienestar del cuidador también forma parte del acompañamiento”.
+
+Destaca estos valores:
+
+- Escucha y respeto.
+- Acompañamiento individualizado.
+- Participación del cuidador.
+- Bienestar emocional.
+- Orientación práctica para el hogar.
+
+No inventes años de experiencia, testimonios, cifras ni historia
+institucional que no se hayan definido.
+
+==================================================
+8. SERVICIOS
+==================================================
+
+Título:
+
+“Nuestros servicios”.
+
+Subtítulo:
+
+“Cada niño tiene sus propias necesidades. Cada cuidador merece
+orientación y apoyo”.
+
+Muestra los servicios como tarjetas con íconos, descripción breve
+y botón “Conocer más”.
+
+Organízalos en tres grupos.
+
+GRUPO 1. EVALUACIÓN Y ORIENTACIÓN INICIAL
+
+- Evaluación psicológica.
+- Evaluación de lenguaje y comunicación.
+- Evaluación ocupacional y sensorial.
+
+GRUPO 2. TERAPIAS PARA NIÑOS
+
+- Terapia psicológica y emocional.
+- Terapia de lenguaje y comunicación.
+- Terapia ocupacional.
+- Terapia de aprendizaje.
+
+GRUPO 3. APOYO PARA CUIDADORES
+
+- Orientación para cuidadores.
+- Bitácora digital.
+- Bienestar emocional del cuidador.
+
+En cada tarjeta, incluye una explicación sencilla y prudente,
+sin prometer resultados ni inventar características clínicas.
+
+Este catálogo de servicios es el contenido de referencia del centro
+y debe poder editarse fácilmente.
+
+Al hacer clic en “Conocer más”, muestra información ampliada en
+una ventana o sección.
+
+Al final agrega:
+
+Título:
+
+“¿No sabes por dónde empezar?”
+
+Texto:
+
+“Conversemos sobre tus necesidades y conozcamos juntos los
+siguientes pasos”.
+
+Botón:
+
+“Solicitar información”.
+
+El botón debe abrir un formulario que no recoja ni envíe datos
+personales a ningún servicio externo; la confirmación se muestra en
+pantalla.
+
+==================================================
+9. RECURSOS PARA EL CUIDADO
+==================================================
+
+Esta sección pública explica los recursos disponibles. Los
+materiales completos se muestran dentro de la zona del cuidador,
+después de acceder a “Mi espacio”.
+
+Título:
+
+“Recursos para el cuidado”.
+
+Subtítulo:
+
+“Orientación y herramientas para acompañar a tu familia”.
+
+Texto:
+
+“Las familias atendidas por Conexión acceden a un espacio digital
+con materiales de apoyo, actividades y recomendaciones para
+acompañar el cuidado en casa”.
+
+Muestra cuatro tarjetas informativas con íconos de acceso privado:
+
+- Videos de apoyo.
+- Mi bitácora.
+- Actividades para casa.
+- Bienestar del cuidador.
+
+Cada tarjeta debe incluir una breve explicación y un botón:
+
+“Ingresar para acceder”.
+
+Al hacer clic, debe abrirse la pantalla de acceso.
+
+No muestres públicamente el contenido completo de los recursos.
+
+==================================================
+10. CONTACTO
+==================================================
+
+Título:
+
+“Conversemos”.
+
+Muestra la ubicación general:
+
+“San Miguel, Lima, Perú”.
+
+Incluye botones:
+
+- “Solicitar información”.
+- “Contactar por WhatsApp”.
+
+El botón de WhatsApp debe mostrar un mensaje de contacto en pantalla;
+no es necesario que abra un número específico mientras este no esté
+definido por el centro.
+
+No inventes dirección exacta, teléfono ni correo que no se hayan
+definido.
+
+==================================================
+11. PIE DE PÁGINA
+==================================================
+
+Incluye:
+
+- Nombre y descriptor de Conexión.
+- Enlaces al menú principal.
+- Ubicación general: San Miguel, Lima, Perú.
+
+==================================================
+B. ACCESO A LA ZONA DEL CUIDADOR
+==================================================
+
+12. PANTALLA DE ACCESO
+
+Al hacer clic en “Ingresar”, muestra:
+
+Título:
+
+“Bienvenido a Conexión”.
+
+Subtítulo:
+
+“Tu espacio para acompañar y cuidarte”.
+
+Botón:
+
+“Acceder a mi espacio”.
+
+Enlace:
+
+“Volver al inicio”.
+
+El botón “Acceder a mi espacio” permite entrar directamente al panel
+del cuidador, sin solicitar usuario ni contraseña. No se presenta
+como un sistema de autenticación con validación de credenciales.
+
+==================================================
+C. ZONA DEL CUIDADOR
+==================================================
+
+13. PANEL PRINCIPAL: MI INICIO
+==================================================
+
+Después de acceder, muestra:
+
+“¡Hola! Bienvenido a tu espacio”.
+
+Texto:
+
+“Aquí puedes revisar tus sesiones, encontrar recursos y consultar
+las actividades propuestas para casa”.
+
+Incluye tarjetas de acceso rápido a:
+
+- Mi próxima cita.
+- Solicitar nueva cita.
+- Actividad de hoy.
+- Mi bitácora.
+- Video recomendado.
+- Mi progreso.
+- Mi recompensa.
+
+Muestra un menú lateral en computadora y una versión adaptable
+en celular.
+
+==================================================
+14. MI PROGRESO
+==================================================
+
+Crea un recorrido visual por etapas, inspirado en la facilidad de uso
+y motivación de aplicaciones educativas como Duolingo, pero con
+identidad propia de Conexión.
+
+Muestra cuatro etapas:
+
+ETAPA 1:
+“Conociendo a mi niño”.
+
+ETAPA 2:
+“Comunicación y conexión”.
+
+ETAPA 3:
+“Rutinas en casa”.
+
+ETAPA 4:
+“Bienestar del cuidador”.
+
+Cada etapa debe mostrar:
+
+- Nombre.
+- Breve descripción.
+- Estado: pendiente, en progreso o completada.
+- Actividades o videos relacionados.
+- Barra visual de avance.
+
+Permite actualizar el estado desde la interfaz.
+
+Una actividad también debe permitir indicar:
+
+- “La intentamos”.
+- “Tenemos una duda”.
+
+No presentes estas opciones como un fracaso.
+
+Incluye esta nota:
+
+“El progreso representa la participación del cuidador en las
+actividades de la plataforma. No constituye una evaluación clínica
+ni mide automáticamente el desarrollo del niño”.
+
+==================================================
+15. MI BITÁCORA
+==================================================
+
+La bitácora convierte la información de una sesión terapéutica en
+una experiencia visual, amigable y comprensible para el cuidador.
+
+PANTALLA PRINCIPAL DE LA BITÁCORA
+
+Muestra tarjetas de sesiones. Cada tarjeta debe incluir:
+
+- Número de sesión.
+- Fecha.
+- Área trabajada.
+- Profesional a cargo (referido por rol).
+- Resumen breve.
+- Botón “Ver mi sesión”.
+
+DETALLE DE UNA SESIÓN
+
+Al abrir una sesión, muestra:
+
+A. Datos de la sesión:
+
+- Número de sesión.
+- Fecha.
+- Área trabajada.
+- Profesional a cargo.
+
+B. “¿Qué trabajamos hoy?”
+
+Presenta las actividades realizadas en la sesión en frases sencillas
+y mediante tarjetas visuales.
+
+C. “¿Qué podemos practicar en casa?”
+
+Presenta las actividades propuestas por el profesional.
+
+D. “Material de apoyo”
+
+Muestra un espacio para un video, imagen o pictograma de apoyo.
+
+E. “¿Cómo nos fue?”
+
+Permite elegir:
+
+- La realizamos y nos resultó cómoda.
+- La intentamos con apoyo.
+- Tenemos una duda.
+- Aún no la hemos realizado.
+
+F. Campo opcional:
+
+“¿Quieres registrar alguna observación?”
+
+G. Botón:
+
+“Guardar registro”.
+
+EJEMPLO DE LA SESIÓN 06
+
+Utiliza como temas ilustrativos:
+
+- Rompecabezas.
+- Encaje de colores.
+- Uso de pictogramas.
+- Práctica de la espera.
+- Seguimiento de indicaciones.
+
+No describas instrucciones terapéuticas detalladas. En su lugar,
+muestra:
+
+“Las indicaciones específicas serán compartidas por el profesional
+a cargo”.
+
+VINCULACIÓN CON EL RECORRIDO
+
+Una actividad de la bitácora debe aparecer también en “Mi progreso”
+como “Actividad de la semana”.
+
+Cuando se registre su estado en la bitácora, actualiza ese mismo
+estado en el recorrido.
+
+==================================================
+16. MIS RECURSOS
+==================================================
+
+Esta sección es visible dentro de la zona del cuidador, después de
+acceder a “Mi espacio”.
+
+Incluye una biblioteca con estas categorías:
+
+- Recomendados para mí.
+- Videos de apoyo.
+- Material visual.
+- Bienestar del cuidador.
+
+Cada recurso debe mostrar:
+
+- Título.
+- Categoría.
+- Descripción breve.
+- Sesión relacionada, cuando corresponda.
+- Botón “Ver recurso”.
+
+Incluye al menos un recurso conectado con la sesión 06 de la
+bitácora.
+
+No inventes enlaces ni videos externos; utiliza espacios visuales
+propios para cada recurso.
+
+==================================================
+17. MIS CITAS
+==================================================
+
+Esta sección debe permitir:
+
+1. Consultar una cita existente.
+2. Solicitar una nueva cita.
+3. Solicitar la reprogramación de una cita existente.
+4. Ver el estado de las solicitudes realizadas.
+
+A. CONSULTAR UNA CITA
+
+Muestra la próxima cita con:
+
+- Fecha.
+- Hora.
+- Tipo de atención.
+- Estado.
+
+B. SOLICITAR NUEVA CITA
+
+Incluye el botón:
+
+“Solicitar nueva cita”.
+
+Al hacer clic, abre un formulario que permita:
+
+1. Seleccionar el tipo de atención:
+
+   - Terapia psicológica y emocional.
+   - Terapia de lenguaje y comunicación.
+   - Terapia ocupacional.
+   - Terapia de aprendizaje.
+   - Orientación para el cuidador.
+   - Sesión de bienestar para el cuidador.
+
+2. Elegir una fecha referencial.
+
+3. Elegir una hora referencial.
+
+4. Añadir una observación opcional.
+
+5. Hacer clic en “Enviar solicitud”.
+
+Al enviar, muestra:
+
+“Tu solicitud de cita ha sido registrada. El equipo de Conexión
+confirmará la fecha y hora disponibles”.
+
+Muestra la solicitud en “Mis citas” con el estado:
+
+“Pendiente de confirmación”.
+
+Aclara que enviar la solicitud no significa que la cita esté
+confirmada.
+
+C. SOLICITAR REPROGRAMACIÓN
+
+Para una cita existente, incluye el botón:
+
+“Solicitar reprogramación”.
+
+Al hacer clic, abre un formulario con:
+
+- Fecha referencial deseada.
+- Hora referencial deseada.
+- Motivo opcional.
+- Botón “Enviar solicitud”.
+
+Al enviar, muestra:
+
+“Tu solicitud ha sido registrada. El equipo de Conexión confirmará
+la disponibilidad”.
+
+Muestra el estado “Reprogramación solicitada”.
+
+Aclara que la cita original no queda reprogramada automáticamente.
+
+D. CONDICIONES
+
+- No conectes calendarios ni servicios externos.
+- No recopiles ni envíes datos personales a ningún servicio externo.
+- Si se solicita la sesión de bienestar desde “Mi recompensa”,
+  muestra también esa solicitud en “Mis citas”.
+
+==================================================
+18. MI RECOMPENSA
+==================================================
+
+Título:
+
+“Tu bienestar también importa”.
+
+Texto:
+
+“Tu participación en las actividades puede ayudarte a avanzar
+hacia un espacio de bienestar para ti”.
+
+Muestra:
+
+- Las cuatro etapas del recorrido.
+- Una barra de avance.
+- Estado de la recompensa: pendiente o habilitada.
+- Una tarjeta que explique la propuesta de una sesión de terapia
+  mensual para el cuidador.
+- Botón “Solicitar mi sesión”.
+
+Condición:
+
+“Al completar las cuatro etapas, la recompensa se habilita
+visualmente”.
+
+Cuando esté habilitada, el botón “Solicitar mi sesión” debe abrir
+una solicitud de cita para la sesión de bienestar del cuidador.
+
+Permite seleccionar fecha y hora referenciales y muestra la
+solicitud en “Mis citas” con el estado “Pendiente de confirmación”.
+
+Incluye esta nota:
+
+“Las condiciones y la disponibilidad de este beneficio serán
+definidas por Conexión”.
+
+No programes una sesión real ni prometas disponibilidad automática.
+
+==================================================
+19. CERRAR SESIÓN
+==================================================
+
+Incluye la opción “Cerrar sesión”, que debe regresar a la página
+principal.
+
+==================================================
+20. FUNCIONAMIENTO GENERAL
+==================================================
+
+- Todos los menús y botones principales deben ser navegables.
+- Los formularios deben mostrar respuestas de confirmación claras.
+- Mantén coherencia visual entre la página pública y la zona
+  del cuidador.
+- No conectes autenticación real, bases de datos, pagos, calendarios
+  ni servicios externos.
+- No agregues funciones que no se hayan solicitado.
+- Prioriza que el sitio sea sencillo de recorrer y presentar.

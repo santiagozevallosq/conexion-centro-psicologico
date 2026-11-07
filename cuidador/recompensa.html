@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mi recompensa — Conexión</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+
+<div class="topbar-movil">
+  <div class="marca"><div class="logo-icono">C</div><strong>Conexión</strong></div>
+  <button aria-label="Abrir menú">☰</button>
+</div>
+
+<div class="app-cuidador">
+  <aside class="sidebar">
+    <a href="../index.html" class="marca">
+      <div class="logo-icono">C</div>
+      <div class="marca-texto"><strong>Conexión</strong><span>CENTRO INTEGRAL PSICOLÓGICO</span></div>
+    </a>
+    <nav>
+      <a href="inicio.html">🏠 Mi inicio</a>
+      <a href="progreso.html">📈 Mi progreso</a>
+      <a href="bitacora.html">📓 Mi bitácora</a>
+      <a href="recursos.html">🎬 Mis recursos</a>
+      <a href="citas.html">📅 Mis citas</a>
+      <a href="recompensa.html" class="activo">🌿 Mi recompensa</a>
+    </nav>
+    <div class="salir"><a href="../index.html" data-cerrar-sesion>↩ Cerrar sesión</a></div>
+  </aside>
+
+  <main class="contenido-cuidador">
+    <h1>Tu bienestar también importa</h1>
+    <p class="subtitulo" style="margin-left:0; max-width:620px;">Tu participación en las actividades puede ayudarte a avanzar hacia un espacio de bienestar para ti.</p>
+
+    <div id="lista-etapas-recompensa" class="etapas" style="margin-bottom:10px;"></div>
+    <div class="barra-progreso" style="margin:18px 0;"><div class="barra-progreso-interna" id="barra-recompensa"></div></div>
+
+    <div class="recompensa-caja">
+      <div class="icono-circulo icono-terracota" style="margin:0 auto 14px;">🌿</div>
+      <h2 id="titulo-recompensa">Sesión de bienestar mensual para el cuidador</h2>
+      <p id="texto-estado-recompensa" style="max-width:480px; margin:0 auto 18px;"></p>
+      <button class="btn btn-primario" id="btn-solicitar-recompensa" disabled>Solicitar mi sesión</button>
+    </div>
+
+    <div class="modal-nota" style="max-width:700px;">
+      Las condiciones y la disponibilidad de este beneficio serán definidas por Conexión.
+    </div>
+  </main>
+</div>
+
+<div class="modal-fondo" id="m-recompensa">
+  <div class="modal">
+    <button class="modal-cerrar" data-cerrar-modal>✕</button>
+    <h3>Solicitar sesión de bienestar</h3>
+    <form id="form-recompensa">
+      <div class="form-grupo">
+        <label for="fecha-recompensa">Fecha referencial</label>
+        <input type="date" id="fecha-recompensa">
+      </div>
+      <div class="form-grupo">
+        <label for="hora-recompensa">Hora referencial</label>
+        <input type="time" id="hora-recompensa">
+      </div>
+      <button type="submit" class="btn btn-primario btn-bloque">Enviar solicitud</button>
+    </form>
+    <div class="mensaje-confirmacion" id="conf-recompensa">✅ Tu solicitud ha sido registrada en Mis citas, con el estado pendiente de confirmación.</div>
+  </div>
+</div>
+
+<script src="../assets/js/estado.js"></script>
+<script src="../assets/js/ui.js"></script>
+<script>
+  function pintar(){
+    const estado = obtenerEstado();
+    const completadas = etapasCompletadas(estado);
+    const habilitada = recompensaHabilitada(estado);
+
+    document.getElementById('lista-etapas-recompensa').innerHTML = estado.etapas.map(e => `
+      <div class="etapa" data-estado="${e.estado}" style="padding:14px 18px;">
+        <div class="etapa-num" style="width:36px; height:36px; font-size:.9rem;">${e.id}</div>
+        <div style="flex:1; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+          <strong>${e.nombre}</strong>
+          <span class="etiqueta-estado ${e.estado}">${ {completada:'Completada', 'en-progreso':'En progreso', pendiente:'Pendiente'}[e.estado] }</span>
+        </div>
+      </div>
+    `).join('');
+
+    document.getElementById('barra-recompensa').style.width = (completadas / estado.etapas.length * 100) + '%';
+
+    const boton = document.getElementById('btn-solicitar-recompensa');
+    const texto = document.getElementById('texto-estado-recompensa');
+
+    if(estado.recompensa.solicitada){
+      texto.textContent = 'Ya has solicitado tu sesión de bienestar. Puedes ver el estado de tu solicitud en Mis citas.';
+      boton.textContent = 'Solicitud enviada';
+      boton.disabled = true;
+    } else if(habilitada){
+      texto.textContent = 'Has completado las cuatro etapas. Tu recompensa está habilitada.';
+      boton.disabled = false;
+      boton.textContent = 'Solicitar mi sesión';
+    } else {
+      texto.textContent = `Llevas ${completadas} de ${estado.etapas.length} etapas completadas. Al completarlas, la recompensa se habilita.`;
+      boton.disabled = true;
+      boton.textContent = 'Solicitar mi sesión';
+    }
+  }
+
+  document.getElementById('btn-solicitar-recompensa').addEventListener('click', () => {
+    if(document.getElementById('btn-solicitar-recompensa').disabled) return;
+    document.getElementById('m-recompensa').classList.add('abierto');
+  });
+
+  document.getElementById('form-recompensa').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const fecha = document.getElementById('fecha-recompensa').value || 'Fecha por confirmar';
+    const hora = document.getElementById('hora-recompensa').value || 'Hora por confirmar';
+    solicitarRecompensa(fecha, hora);
+    document.getElementById('conf-recompensa').classList.add('visible');
+    pintar();
+    e.target.reset();
+  });
+
+  pintar();
+</script>
+</body>
+</html>

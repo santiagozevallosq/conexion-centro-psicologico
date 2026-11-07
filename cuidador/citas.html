@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mis citas — Conexión</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+
+<div class="topbar-movil">
+  <div class="marca"><div class="logo-icono">C</div><strong>Conexión</strong></div>
+  <button aria-label="Abrir menú">☰</button>
+</div>
+
+<div class="app-cuidador">
+  <aside class="sidebar">
+    <a href="../index.html" class="marca">
+      <div class="logo-icono">C</div>
+      <div class="marca-texto"><strong>Conexión</strong><span>CENTRO INTEGRAL PSICOLÓGICO</span></div>
+    </a>
+    <nav>
+      <a href="inicio.html">🏠 Mi inicio</a>
+      <a href="progreso.html">📈 Mi progreso</a>
+      <a href="bitacora.html">📓 Mi bitácora</a>
+      <a href="recursos.html">🎬 Mis recursos</a>
+      <a href="citas.html" class="activo">📅 Mis citas</a>
+      <a href="recompensa.html">🌿 Mi recompensa</a>
+    </nav>
+    <div class="salir"><a href="../index.html" data-cerrar-sesion>↩ Cerrar sesión</a></div>
+  </aside>
+
+  <main class="contenido-cuidador">
+    <div style="display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap;">
+      <div>
+        <h1 style="margin-bottom:4px;">Mis citas</h1>
+        <p class="subtitulo" style="margin:0;">Consulta, solicita o reprograma tus citas con Conexión.</p>
+      </div>
+      <button class="btn btn-primario" data-abrir-modal="m-nueva-cita">Solicitar nueva cita</button>
+    </div>
+
+    <div id="lista-citas" style="margin-top:20px;"></div>
+  </main>
+</div>
+
+<!-- Modal nueva cita -->
+<div class="modal-fondo" id="m-nueva-cita">
+  <div class="modal">
+    <button class="modal-cerrar" data-cerrar-modal>✕</button>
+    <h3>Solicitar nueva cita</h3>
+    <form id="form-nueva-cita">
+      <div class="form-grupo">
+        <label for="tipo-atencion">Tipo de atención</label>
+        <select id="tipo-atencion">
+          <option>Terapia psicológica y emocional</option>
+          <option>Terapia de lenguaje y comunicación</option>
+          <option>Terapia ocupacional</option>
+          <option>Terapia de aprendizaje</option>
+          <option>Orientación para el cuidador</option>
+          <option>Sesión de bienestar para el cuidador</option>
+        </select>
+      </div>
+      <div class="form-grupo">
+        <label for="fecha-cita">Fecha referencial</label>
+        <input type="date" id="fecha-cita">
+      </div>
+      <div class="form-grupo">
+        <label for="hora-cita">Hora referencial</label>
+        <input type="time" id="hora-cita">
+      </div>
+      <div class="form-grupo">
+        <label for="obs-cita">Observación (opcional)</label>
+        <textarea id="obs-cita" placeholder="Algo que quieras comentarnos antes de la cita"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primario btn-bloque">Enviar solicitud</button>
+    </form>
+    <div class="mensaje-confirmacion" id="conf-nueva-cita">✅ Tu solicitud de cita ha sido registrada. El equipo de Conexión confirmará la fecha y hora disponibles. Mientras tanto, queda como <strong>pendiente de confirmación</strong>.</div>
+  </div>
+</div>
+
+<!-- Modal reprogramación -->
+<div class="modal-fondo" id="m-reprogramar">
+  <div class="modal">
+    <button class="modal-cerrar" data-cerrar-modal>✕</button>
+    <h3>Solicitar reprogramación</h3>
+    <form id="form-reprogramar">
+      <input type="hidden" id="reprogramar-id">
+      <div class="form-grupo">
+        <label for="reprogramar-fecha">Fecha referencial deseada</label>
+        <input type="date" id="reprogramar-fecha">
+      </div>
+      <div class="form-grupo">
+        <label for="reprogramar-hora">Hora referencial deseada</label>
+        <input type="time" id="reprogramar-hora">
+      </div>
+      <div class="form-grupo">
+        <label for="reprogramar-motivo">Motivo (opcional)</label>
+        <textarea id="reprogramar-motivo" placeholder="Cuéntanos brevemente el motivo"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primario btn-bloque">Enviar solicitud</button>
+    </form>
+    <div class="mensaje-confirmacion" id="conf-reprogramar">✅ Tu solicitud ha sido registrada. El equipo de Conexión confirmará la disponibilidad. La cita original no queda reprogramada automáticamente.</div>
+  </div>
+</div>
+
+<script src="../assets/js/estado.js"></script>
+<script src="../assets/js/ui.js"></script>
+<script>
+  const etiquetasEstadoCita = {
+    'confirmada': 'Confirmada',
+    'pendiente': 'Pendiente de confirmación',
+    'reprogramacion': 'Reprogramación solicitada'
+  };
+
+  function pintarCitas(){
+    const estado = obtenerEstado();
+    const cont = document.getElementById('lista-citas');
+    if(estado.citas.length === 0){
+      cont.innerHTML = `<div class="vacio">Todavía no tienes citas registradas.</div>`;
+      return;
+    }
+    cont.innerHTML = estado.citas.map(c => `
+      <div class="cita-tarjeta">
+        <div class="cita-cabecera">
+          <div>
+            <h3 style="margin-bottom:4px;">${c.tipo}</h3>
+            <p style="margin:0; color:var(--texto-suave);">📅 ${c.fecha} · 🕐 ${c.hora}</p>
+          </div>
+          <span class="estado-pill ${c.estado}">${etiquetasEstadoCita[c.estado]}</span>
+        </div>
+        ${c.reprogramacion ? `<p style="margin-top:10px; font-size:.9rem;">Fecha deseada: ${c.reprogramacion.fecha} · ${c.reprogramacion.hora}</p>` : ''}
+        ${c.estado === 'confirmada' ? `<button class="btn btn-secundario btn-pequeno" style="margin-top:12px;" data-reprogramar="${c.id}">Solicitar reprogramación</button>` : ''}
+      </div>
+    `).join('');
+
+    cont.querySelectorAll('[data-reprogramar]').forEach(boton => {
+      boton.addEventListener('click', () => {
+        document.getElementById('reprogramar-id').value = boton.getAttribute('data-reprogramar');
+        document.getElementById('m-reprogramar').classList.add('abierto');
+      });
+    });
+  }
+
+  document.getElementById('form-nueva-cita').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const tipo = document.getElementById('tipo-atencion').value;
+    const fecha = document.getElementById('fecha-cita').value || 'Fecha por confirmar';
+    const hora = document.getElementById('hora-cita').value || 'Hora por confirmar';
+    const observacion = document.getElementById('obs-cita').value;
+    agregarCita({ tipo, fecha, hora, observacion, origen: 'solicitud' });
+    document.getElementById('conf-nueva-cita').classList.add('visible');
+    pintarCitas();
+    e.target.reset();
+  });
+
+  document.getElementById('form-reprogramar').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const id = document.getElementById('reprogramar-id').value;
+    const fecha = document.getElementById('reprogramar-fecha').value || 'Fecha por confirmar';
+    const hora = document.getElementById('reprogramar-hora').value || 'Hora por confirmar';
+    const motivo = document.getElementById('reprogramar-motivo').value;
+    solicitarReprogramacion(id, fecha, hora, motivo);
+    document.getElementById('conf-reprogramar').classList.add('visible');
+    pintarCitas();
+    e.target.reset();
+  });
+
+  pintarCitas();
+</script>
+</body>
+</html>

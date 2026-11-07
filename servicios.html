@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Servicios — Conexión</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+<header class="encabezado">
+  <div class="container">
+    <a href="index.html" class="marca">
+      <div class="logo-icono">C</div>
+      <div class="marca-texto"><strong>Conexión</strong><span>CENTRO INTEGRAL PSICOLÓGICO</span></div>
+    </a>
+    <nav class="nav-publica">
+      <a href="index.html">Inicio</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="servicios.html" class="activo">Servicios</a>
+      <a href="recursos.html">Recursos para el cuidado</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="acceso.html" class="btn btn-primario btn-pequeno">Ingresar</a>
+    </nav>
+    <button class="menu-toggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+  <section class="seccion texto-centro">
+    <div class="container">
+      <h1>Nuestros servicios</h1>
+      <p class="subtitulo">Cada niño tiene sus propias necesidades. Cada cuidador merece orientación y apoyo.</p>
+    </div>
+  </section>
+
+  <section class="seccion" style="padding-top:0;">
+    <div class="container">
+
+      <!-- GRUPO 1 -->
+      <div class="grupo-servicios">
+        <div class="grupo-titulo"><span class="numero">Grupo 1</span><h2 style="margin:0;">Evaluación y orientación inicial</h2></div>
+        <div class="grid-3">
+          <div class="tarjeta">
+            <div class="icono-circulo icono-salvia">📋</div>
+            <h3>Evaluación psicológica</h3>
+            <p>Un primer acercamiento para comprender las necesidades del niño y de la familia.</p>
+            <button class="btn btn-secundario btn-pequeno" data-abrir-modal="m-eval-psicologica">Conocer más</button>
+          </div>
+          <div class="tarjeta">
+            <div class="icono-circulo icono-azul">💬</div>
+            <h3>Evaluación de lenguaje y comunicación</h3>
+            <p>Revisión de las formas de comunicación del niño y sus posibilidades de desarrollo.</p>
+            <button class="btn btn-secundario btn-pequeno" data-abrir-modal="m-eval-lenguaje">Conocer más</button>
+          </div>
+          <div class="tarjeta">
+            <div class="icono-circulo icono-terracota">🖐️</div>
+            <h3>Evaluación ocupacional y sensorial</h3>
+            <p>Observación de la autonomía, motricidad y procesamiento sensorial del niño.</p>
+            <button class="btn btn-secundario btn-pequeno" data-abrir-modal="m-eval-ocupacional">Conocer más</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- GRUPO 2 -->
+      <div class="grupo-servicios">
+        <div class="grupo-titulo"><span class="numero">Grupo 2</span><h2 style="margin:0;">Terapias para niños</h2></div>
+        <div class="grid-4">
+          <div class="tarjeta">
+            <div class="icono-circulo icono-salvia">💛</div>
+            <h3>Terapia psicológica y emocional</h3>
+            <p>Acompañamiento emocional adaptado al ritmo del niño.</p>
+            <button class="btn btn-secundario btn-pequeno" data-abrir-modal="m-terapia-psicologica">Conocer más</button>
+          </div>
+          <div class="tarjeta">
+            <div class="icono-circulo icono-azul">🗣️</div>
+            <h3>Terapia de lenguaje y comunicación</h3>
+            <p>Desarrollo de herramientas para comunicarse de forma funcional.</p>
+            <button class="btn btn-secundario btn-pequeno" data-abrir-modal="m-terapia-lenguaje">Conocer más</button>
+          </div>
+          <div class="tarjeta">
+            <div class="icono-circulo icono-terracota">🧩</div>
+            <h3>Terapia ocupacional</h3>
+            <p>Fortalecimiento de la autonomía y la regulación sensorial.</p>
+            <button class="btn btn-secundario btn-pequeno" data-abrir-modal="m-terapia-ocupacional">Conocer más</button>
+          </div>
+          <div class="tarjeta">
+            <div class="icono-circulo icono-salvia">📘</div>
+            <h3>Terapia de aprendizaje</h3>
+            <p>Apoyo a los procesos de aprendizaje dentro y fuera del aula.</p>
+            <button class="btn btn-secundario btn-pequeno" data-abrir-modal="m-terapia-aprendizaje">Conocer más</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- GRUPO 3 -->
+      <div class="grupo-servicios">
+        <div class="grupo-titulo"><span class="numero">Grupo 3</span><h2 style="margin:0;">Apoyo para cuidadores</h2></div>
+        <div class="grid-3">
+          <div class="tarjeta">
+            <div class="icono-circulo icono-azul">🤝</div>
+            <h3>Orientación para cuidadores</h3>
+            <p>Espacios para comprender el proceso del niño y resolver dudas del día a día.</p>
+            <button class="btn btn-secundario btn-pequeno" data-abrir-modal="m-orientacion">Conocer más</button>
+          </div>
+          <div class="tarjeta">
+            <div class="icono-circulo icono-terracota">📓</div>
+            <h3>Bitácora digital</h3>
+            <p>Un registro visual y sencillo de cada sesión, pensado para el cuidador.</p>
+            <button class="btn btn-secundario btn-pequeno" data-abrir-modal="m-bitacora">Conocer más</button>
+          </div>
+          <div class="tarjeta">
+            <div class="icono-circulo icono-salvia">🌿</div>
+            <h3>Bienestar emocional del cuidador</h3>
+            <p>Espacios de apoyo para quienes cuidan, reconociendo también sus propias necesidades.</p>
+            <button class="btn btn-secundario btn-pequeno" data-abrir-modal="m-bienestar-cuidador">Conocer más</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="seccion seccion-alt texto-centro">
+    <div class="container">
+      <h2>¿No sabes por dónde empezar?</h2>
+      <p class="subtitulo">Conversemos sobre tus necesidades y conozcamos juntos los siguientes pasos.</p>
+      <button class="btn btn-primario" data-abrir-modal="m-solicitar-info">Solicitar información</button>
+    </div>
+  </section>
+</main>
+
+<footer class="pie">
+  <div class="container">
+    <div class="pie-col">
+      <h4>Conexión</h4>
+      <p style="opacity:.85; font-size:.9rem;">Centro Integral Psicológico</p>
+    </div>
+    <div class="pie-col">
+      <h4>Menú</h4>
+      <a href="index.html">Inicio</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="recursos.html">Recursos para el cuidado</a>
+      <a href="contacto.html">Contacto</a>
+    </div>
+    <div class="pie-col">
+      <h4>Ubicación</h4>
+      <p style="opacity:.85; font-size:.9rem;">San Miguel, Lima, Perú</p>
+    </div>
+  </div>
+  <p class="pie-nota">© Conexión — Centro Integral Psicológico</p>
+</footer>
+
+<!-- ===================== Modales de servicios ===================== -->
+
+<div class="modal-fondo" id="m-eval-psicologica">
+  <div class="modal">
+    <button class="modal-cerrar" data-cerrar-modal>✕</button>
+    <h3>Evaluación psicológica</h3>
+    <p>Un primer espacio de encuentro con la familia para conocer la historia del
+      niño, sus intereses, sus formas de comunicación y las preocupaciones del
+      cuidador. A partir de esta evaluación se conversa sobre los posibles
+      siguientes pasos dentro del centro.</p>
+    <div class="modal-nota">Las indicaciones específicas para cada caso serán proporcionadas por el profesional a cargo.</div>
+  </div>
+</div>
+
+<div class="modal-fondo" id="m-eval-lenguaje">
+  <div class="modal">
+    <button class="modal-cerrar" data-cerrar-modal>✕</button>
+    <h3>Evaluación de lenguaje y comunicación</h3>
+    <p>Observación de las formas en que el niño se comunica, ya sea con palabras,
+      gestos, pictogramas u otras formas de expresión, para identificar qué
+      herramientas pueden fortalecer su comunicación.</p>
+    <div class="modal-nota">Las indicaciones específicas para cada caso serán proporcionadas por el profesional a cargo.</div>
+  </div>
+</div>
+
+<div class="modal-fondo" id="m-eval-ocupacional">
+  <div class="modal">
+    <button class="modal-cerrar" data-cerrar-modal>✕</button>
+    <h3>Evaluación ocupacional y sensorial</h3>
+    <p>Revisión de la autonomía del niño en actividades cotidianas y de su forma
+      de procesar estímulos sensoriales (sonidos, texturas, luces), como base para
+      planificar la terapia ocupacional.</p>
+    <div class="modal-nota">Las indicaciones específicas para cada caso serán proporcionadas por el profesional a cargo.</div>
+  </div>
+</div>
+
+<div class="modal-fondo" id="m-terapia-psicologica">
+  <div class="modal">
+    <button class="modal-cerrar" data-cerrar-modal>✕</button>
+    <h3>Terapia psicológica y emocional</h3>
+    <p>Sesiones individuales orientadas a acompañar el desarrollo emocional del
+      niño: reconocimiento de emociones, manejo de la frustración y fortalecimiento
+      de su seguridad personal.</p>
+    <div class="modal-nota">Las indicaciones específicas para cada caso serán proporcionadas por el profesional a cargo.</div>
+  </div>
+</div>
+
+<div class="modal-fondo" id="m-terapia-lenguaje">
+  <div class="modal">
+    <button class="modal-cerrar" data-cerrar-modal>✕</button>
+    <h3>Terapia de lenguaje y comunicación</h3>
+    <p>Trabajo continuo para ampliar las formas en que el niño se comunica,
+      usando el juego, pictogramas y otras estrategias adaptadas a su ritmo.</p>
+    <div class="modal-nota">Las indicaciones específicas para cada caso serán proporcionadas por el profesional a cargo.</div>
+  </div>
+</div>
+
+<div class="modal-fondo" id="m-terapia-ocupacional">
+  <div class="modal">
+    <button class="modal-cerrar" data-cerrar-modal>✕</button>
+    <h3>Terapia ocupacional</h3>
+    <p>Actividades que fortalecen la coordinación, la autonomía en tareas diarias
+      y la regulación de estímulos sensoriales.</p>
+    <div class="modal-nota">Las indicaciones específicas para cada caso serán proporcionadas por el profesional a cargo.</div>
+  </div>
+</div>
+
+<div class="modal-fondo" id="m-terapia-aprendizaje">
+  <div class="modal">
+    <button class="modal-cerrar" data-cerrar-modal>✕</button>
+    <h3>Terapia de aprendizaje</h3>
+    <p>Apoyo a los procesos de atención, comprensión y organización que
+      acompañan el aprendizaje del niño, en coordinación con su entorno escolar
+      cuando corresponde.</p>
+    <div class="modal-nota">Las indicaciones específicas para cada caso serán proporcionadas por el profesional a cargo.</div>
+  </div>
+</div>
+
+<div class="modal-fondo" id="m-orientacion">
+  <div class="modal">
+    <button class="modal-cerrar" data-cerrar-modal>✕</button>
+    <h3>Orientación para cuidadores</h3>
+    <p>Espacios de conversación donde el cuidador puede entender mejor lo que se
+      trabaja en las sesiones, resolver dudas y recibir orientación práctica para
+      el día a día en casa.</p>
+  </div>
+</div>
+
+<div class="modal-fondo" id="m-bitacora">
+  <div class="modal">
+    <button class="modal-cerrar" data-cerrar-modal>✕</button>
+    <h3>Bitácora digital</h3>
+    <p>Un registro visual de cada sesión, pensado para que el cuidador entienda
+      con claridad qué se trabajó, qué puede practicar en casa y cómo fue esa
+      experiencia. Disponible dentro de tu espacio como cuidador.</p>
+  </div>
+</div>
+
+<div class="modal-fondo" id="m-bienestar-cuidador">
+  <div class="modal">
+    <button class="modal-cerrar" data-cerrar-modal>✕</button>
+    <h3>Bienestar emocional del cuidador</h3>
+    <p>Recursos y espacios de apoyo pensados para quienes cuidan, porque su
+      bienestar también forma parte del acompañamiento a la familia.</p>
+  </div>
+</div>
+
+<div class="modal-fondo" id="m-solicitar-info">
+  <div class="modal">
+    <button class="modal-cerrar" data-cerrar-modal>✕</button>
+    <h3>Solicitar información</h3>
+    <form data-confirmacion="conf-info" data-reset-tras-envio>
+      <div class="form-grupo">
+        <label for="info-nombre">Nombre</label>
+        <input type="text" id="info-nombre" placeholder="Tu nombre">
+      </div>
+      <div class="form-grupo">
+        <label for="info-contacto">Correo o teléfono de contacto</label>
+        <input type="text" id="info-contacto" placeholder="¿Cómo te podemos contactar?">
+      </div>
+      <div class="form-grupo">
+        <label for="info-mensaje">¿En qué podemos ayudarte?</label>
+        <textarea id="info-mensaje" placeholder="Cuéntanos brevemente tu consulta"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primario btn-bloque">Enviar solicitud</button>
+    </form>
+    <div class="mensaje-confirmacion" id="conf-info">✅ Tu solicitud de información ha sido registrada. Pronto nos pondremos en contacto contigo.</div>
+  </div>
+</div>
+
+<script src="assets/js/ui.js"></script>
+</body>
+</html>

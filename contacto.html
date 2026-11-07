@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contacto — Conexión</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+<header class="encabezado">
+  <div class="container">
+    <a href="index.html" class="marca">
+      <div class="logo-icono">C</div>
+      <div class="marca-texto"><strong>Conexión</strong><span>CENTRO INTEGRAL PSICOLÓGICO</span></div>
+    </a>
+    <nav class="nav-publica">
+      <a href="index.html">Inicio</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="recursos.html">Recursos para el cuidado</a>
+      <a href="contacto.html" class="activo">Contacto</a>
+      <a href="acceso.html" class="btn btn-primario btn-pequeno">Ingresar</a>
+    </nav>
+    <button class="menu-toggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+  <section class="seccion">
+    <div class="container hero-grid">
+      <div>
+        <h1>Conversemos</h1>
+        <p>Cuéntanos sobre tu familia y conversemos sobre los siguientes pasos.</p>
+        <p><strong>Ubicación:</strong> San Miguel, Lima, Perú</p>
+        <div class="hero-botones">
+          <button class="btn btn-primario" data-abrir-modal="m-solicitar-info-contacto">Solicitar información</button>
+          <button class="btn btn-secundario" data-abrir-modal="m-whatsapp">Contactar por WhatsApp</button>
+        </div>
+      </div>
+      <div class="tarjeta" style="background:var(--verde-salvia-light); border:none;">
+        <div class="icono-circulo icono-salvia">📍</div>
+        <h3>San Miguel, Lima</h3>
+        <p>Atendemos familias de San Miguel y distritos cercanos. La dirección
+          exacta se comparte directamente con cada familia al coordinar una
+          cita.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="pie">
+  <div class="container">
+    <div class="pie-col">
+      <h4>Conexión</h4>
+      <p style="opacity:.85; font-size:.9rem;">Centro Integral Psicológico</p>
+    </div>
+    <div class="pie-col">
+      <h4>Menú</h4>
+      <a href="index.html">Inicio</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="recursos.html">Recursos para el cuidado</a>
+      <a href="contacto.html">Contacto</a>
+    </div>
+    <div class="pie-col">
+      <h4>Ubicación</h4>
+      <p style="opacity:.85; font-size:.9rem;">San Miguel, Lima, Perú</p>
+    </div>
+  </div>
+  <p class="pie-nota">© Conexión — Centro Integral Psicológico</p>
+</footer>
+
+<div class="modal-fondo" id="m-solicitar-info-contacto">
+  <div class="modal">
+    <button class="modal-cerrar" data-cerrar-modal>✕</button>
+    <h3>Solicitar información</h3>
+    <form data-confirmacion="conf-info-contacto" data-reset-tras-envio>
+      <div class="form-grupo">
+        <label for="c-nombre">Nombre</label>
+        <input type="text" id="c-nombre" placeholder="Tu nombre">
+      </div>
+      <div class="form-grupo">
+        <label for="c-contacto">Correo o teléfono de contacto</label>
+        <input type="text" id="c-contacto" placeholder="¿Cómo te podemos contactar?">
+      </div>
+      <div class="form-grupo">
+        <label for="c-mensaje">¿En qué podemos ayudarte?</label>
+        <textarea id="c-mensaje" placeholder="Cuéntanos brevemente tu consulta"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primario btn-bloque">Enviar solicitud</button>
+    </form>
+    <div class="mensaje-confirmacion" id="conf-info-contacto">✅ Tu solicitud de información ha sido registrada. Pronto nos pondremos en contacto contigo.</div>
+  </div>
+</div>
+
+<div class="modal-fondo" id="m-whatsapp">
+  <div class="modal">
+    <button class="modal-cerrar" data-cerrar-modal>✕</button>
+    <h3>Contactar por WhatsApp</h3>
+    <p>💬 ¡Gracias por tu interés en Conexión! Un miembro de nuestro equipo te
+      responderá por WhatsApp en el horario de atención del centro.</p>
+  </div>
+</div>
+
+<script src="assets/js/ui.js"></script>
+</body>
+</html>
